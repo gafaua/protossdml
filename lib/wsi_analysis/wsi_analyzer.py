@@ -2,7 +2,6 @@ from os import path
 from typing import List
 
 import numpy as np
-import plotly.express as px
 import torch
 import torch.nn as nn
 import torchvision.transforms as transforms
@@ -154,13 +153,19 @@ class WSIAnalyzer:
                                  scores):
 
         coords, labels, scores = zip(*scores)
-
-        fig = px.histogram(scores,
-                           title="Score distribution (similarity to prototype)",
-                           color=["Anomaly" if a==1 else "Normal" for a in labels],
-                           marginal="box")
-        return fig
-
+        tumor_scores = []
+        normal_scores = []
+        for i, a in enumerate(labels):
+            if a == 1:
+                tumor_scores.append(scores[i])
+            else:
+                normal_scores.append(scores[i])
+        plt.hist([tumor_scores, normal_scores], bins=90, color=["red", "cyan"], stacked=True, edgecolor="black")
+        plt.title("Score distribution (similarity to the prototype)")
+        plt.xlabel("Scores")
+        plt.ylabel("Frequency")
+        plt.legend(["Tumor", "Normal"])
+        plt.show()
 
     def generate_graph(self):
         coords, _, _ = zip(*self.features)
