@@ -76,9 +76,6 @@ class WSIAnalyzer:
 
             np.savez(features_path, coords, anomalies, features)
 
-        print("GENERATING ADJACENCY GRAPH")
-        self.generate_graph()
-
 
     @torch.no_grad()
     def generate_features(self, batch_size=128, num_workers=16):
@@ -171,13 +168,16 @@ class WSIAnalyzer:
     def generate_graph(self):
         coords, _, _ = zip(*self.features)
 
-        self.graph = make_graph(np.array(coords))
+        self.graph = make_graph(coords)
         print(f"Generated graph with {len(self.graph.nodes):,} nodes and {len(self.graph.edges):,} edges")
 
         return self.graph
 
 
     def post_process(self, alpha, steps, threshold):
+        print("GENERATING ADJACENCY GRAPH")
+        self.generate_graph()
+
         self.pp_scores = propagate_scores(self.graph, self.scores, alpha, steps, threshold)
 
 

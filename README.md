@@ -4,7 +4,7 @@ Official repository for *ProtoSSDML: Self-Supervised Deep Metric Learning for Pr
 
 This repository contains the training pipeline presented in the paper, the evaluation code for CAMELYON16 and a demo notebook.
 
-Model weights and a sample support set for CAMELYON16 are available her: URL.
+Model weights and a sample support set for CAMELYON16 can be downloaded from [this repository](https://drive.google.com/drive/folders/1H6A4JS3D06DqE4QfWbEb1Sx1pQk8wBtz).
 
 ### Installation
 You can install most requirements from `requirements.txt`.

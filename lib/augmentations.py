@@ -28,16 +28,15 @@ class TwoCropsTransform(nn.Module):
 
 
 class RandomSharpenAugmentation(nn.Module):
-    def __init__(self, min_kernel, max_kernel, sigma=2, p=0.5):
+    def __init__(self, min_kernel, max_kernel, p=0.5):
         super().__init__()
         self.kernel_choices = list(range(min_kernel, max_kernel, 2))
         self.p = p
-        self.sigma=sigma
 
     def forward(self, img: torch.Tensor):
         if np.random.random() < self.p:
             kernel = int(np.random.choice(self.kernel_choices))
-            gaussian = F.gaussian_blur(img, kernel, self.sigma)
+            gaussian = F.gaussian_blur(img, kernel)
             return ((img - gaussian)+img).clip(0,1)
         else:
             return img

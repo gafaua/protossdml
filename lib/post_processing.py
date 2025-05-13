@@ -20,7 +20,7 @@ def make_graph(coords: np.array, radius=9):
 
     edge_spatial = np.stack([a,b])
     G = Graph()
-    G.add_nodes_from([(tuple(coords[i]), ) for i in range(len(coords))])
+    G.add_nodes_from(coords)
     G.add_edges_from([(tuple(coords[n1]), tuple(coords[n2])) for n1, n2 in edge_spatial.T])
 
     return G

@@ -15,6 +15,8 @@ import multiresolutionimageinterface as mir
 
 from lib.wsi_analysis.utils import read_polygon_annotations_from_xml
 
+CAMELYON_DATASET_PATH = "/store2/travail/data/CAMELYON16/"
+
 
 class WSIDataset(Dataset):
     def __init__(self,
@@ -44,7 +46,7 @@ class WSIDataset(Dataset):
             # Use the CAMELYON provided tissue masks
             # These lines are necessary to enable the use of ASAP and multiresolutionimageinterface
             name = self.wsi_path.split("/")[-1].split(".")[0]
-            mask_path = f"/store2/travail/data/CAMELYON16/masks/{name}_mask.tif"
+            mask_path = f"{CAMELYON_DATASET_PATH}/masks/{name}_mask.tif"
             mask = mir.MultiResolutionImageReader().open(mask_path)
             level_width, level_height = mask.getLevelDimensions(level=5)
             mask = mask.getUCharPatch(startX=0, startY=0, width=level_width, height=level_height, level=5)

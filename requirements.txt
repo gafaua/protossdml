@@ -1,0 +1,14 @@
+tiatoolbox
+numpy
+torch
+torchvision
+torchstain
+tqdm
+matplotlib
+scipy
+scikit-learn
+wsiloader
+xmltodict
+shapely
+networkx
+numcodecs==0.15.1
