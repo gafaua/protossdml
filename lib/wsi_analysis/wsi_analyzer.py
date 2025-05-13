@@ -167,6 +167,7 @@ class WSIAnalyzer:
         plt.legend(["Tumor", "Normal"])
         plt.show()
 
+
     def generate_graph(self):
         coords, _, _ = zip(*self.features)
 
