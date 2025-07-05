@@ -1,6 +1,8 @@
 # Self-Supervised Deep Metric Learning for Prototypical Zero-shot Lesion Retrieval in Placenta Whole-Slide Images
 
-Official repository for *ProtoSSDML: Self-Supervised Deep Metric Learning for Prototypical Zero-shot Lesion Retrieval in Placenta Whole-Slide Image*.
+Official repository for *Self-Supervised Deep Metric Learning for Prototypical Zero-shot Lesion Retrieval in Placenta Whole-Slide Image*.
+
+[Open access link](https://www.sciencedirect.com/science/article/pii/S0010482525009850) to the article.
 
 This repository contains the training pipeline presented in the paper, the evaluation code for CAMELYON16 and a demo notebook.
 
@@ -31,3 +33,20 @@ python eval.py --model protossdml --name protossdml_camelyon16 --level patch
 The [`demo.ipynb`](./demo.ipynb) notebook contains an example of heatmap generation for a test WSI from CAMELYON16 using a support set generated during the zero-shot, simulated low-data regime evaluation.
 
 <img src="./gt_test_071.png" height=300>  <img src="./hm_test_071.png" height=300>
+
+### Citing this article
+If you find this repository useful, please consider giving a star ⭐ and cite the original article!
+
+```
+@article{protossdml_2025,
+	title = {Self-supervised deep metric learning for prototypical zero-shot lesion retrieval in placenta whole-slide images},
+	volume = {196},
+	issn = {0010-4825},
+	url = {https://www.sciencedirect.com/science/article/pii/S0010482525009850},
+	doi = {https://doi.org/10.1016/j.compbiomed.2025.110634},
+	journal = {Computers in Biology and Medicine},
+	author = {Faure, Gaspar and Soglio, Dorothée Dal and Patey, Natalie and Oligny, Luc and Girard, Sylvie and Séoud, Lama},
+	year = {2025},
+	pages = {110634},
+}
+```
